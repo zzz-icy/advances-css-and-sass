@@ -58,16 +58,65 @@ body {
 .heading-primary {
 	color: #fff;
 	text-transform: uppercase;
+	/* This backface-visibility property determines if the back part of the element when we transform it
+    is visible or hidden for the user.
+    So imagine we have an element and we rotate it 180 degrees.
+    So it would be logical that we then see the back part
+    of that element, right?
+    But if we use backface-visibility hidden, then that back part gets hidden which is a hacky fix for the shaky animation, */
+	backface-visibility: hidden;
 }
 .heading-primary-main {
 	display: block;
 	font-size: 60px;
 	font-weight: 400;
 	letter-spacing: 35px;
+	animation-name: moveInLeft;
+	animation-duration: 1s;
+	animation-timing-function: ease-out;
+	/* animation-iteration-count: 3;
+	 animation-delay: 3s; */
 }
 .heading-primary-sub {
 	display: block;
 	font-size: 20px;
 	font-weight: 700;
 	letter-spacing: 17.4px;
+	animation: moveInRight 1s ease-out;
+	/* animation-name: moveInRight;
+	animation-duration: 1s;
+	animation-timing-function: ease-out; */
+}
+
+@keyframes moveInLeft {
+	0% {
+		opacity: 0;
+		/* Because the direction goes from left to right.
+        So a positive value means it goes to the right,
+        and negative value means it goes to the left. */
+		transform: translateX(-100px);
+	}
+
+	80% {
+		transform: translateX(10px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes moveInRight {
+	0% {
+		opacity: 0;
+		transform: translateX(100px);
+	}
+
+	80% {
+		transform: translateX(-10px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
 }
