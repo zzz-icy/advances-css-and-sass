@@ -7,15 +7,20 @@ Dark green: #28b485
 
 */
 /**** BASIC RESET *****/
-* {
+*,
+*::before,
+*::after {
 	margin: 0;
 	padding: 0;
-	box-sizing: border-box;
-	/* paddings and margins are not considered into the height and width */
+	/* better practice , define it under body and inherit here*/
+	box-sizing: inherit;
 }
 html {
 	/* 1rem = 10px */
-	font-size: 10px;
+	/* by doing this, then we remove the ability for  people  to see our website properly, because they can no longer change the default font size. */
+	/* font-size: 10px; */
+	/* 10/16 */
+	font-size: 62.5%;
 }
 body {
 	font-family: "Lato", sans-serif;
@@ -24,6 +29,8 @@ body {
 	line-height: 1.7;
 	color: #777;
 	padding: 3rem;
+	box-sizing: border-box;
+	/* paddings and margins are not considered into the height and width */
 }
 .header {
 	height: 95vh;
