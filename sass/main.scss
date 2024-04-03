@@ -11,6 +11,9 @@ $color-primary: #55c57a;
 $color-primary-light: #7ed56f;
 $color-primary-dark: #28b485;
 
+$color-grey-dark: #777;
+$color-white: #fff;
+$color-black: #000;
 /**** BASIC RESET *****/
 *,
 *::before,
@@ -32,7 +35,7 @@ body {
 	font-weight: 400;
 	/* font-size: 16px; */
 	line-height: 1.7;
-	color: #777;
+	color: $color-grey-dark;
 	padding: 3rem;
 	box-sizing: border-box;
 	/* paddings and margins are not considered into the height and width */
@@ -50,28 +53,30 @@ body {
 	background-position: top;
 	/* clockwise , starting from the top left corner where is 0,0*/
 	clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+	// .header__logo-box
+	&__logo-box {
+		position: absolute;
+		top: 4rem;
+		left: 4rem;
+	}
+
+	&__logo {
+		height: 3.5rem;
+	}
+
+	&__text-box {
+		position: absolute;
+		top: 40%;
+		left: 50%;
+		/* -50% is for the height or the width of the element */
+		transform: translate(-50%, -50%);
+		text-align: center;
+	}
 }
 
-.header__logo-box {
-	position: absolute;
-	top: 4rem;
-	left: 4rem;
-}
-
-.header__logo {
-	height: 3.5rem;
-}
-
-.header__text-box {
-	position: absolute;
-	top: 40%;
-	left: 50%;
-	/* -50% is for the height or the width of the element */
-	transform: translate(-50%, -50%);
-	text-align: center;
-}
 .heading-primary {
-	color: #fff;
+	color: $color-white;
 	text-transform: uppercase;
 	/* This backface-visibility property determines if the back part of the element when we transform it
     is visible or hidden for the user.
@@ -81,27 +86,29 @@ body {
     But if we use backface-visibility hidden, then that back part gets hidden which is a hacky fix for the shaky animation, */
 	backface-visibility: hidden;
 	margin-bottom: 6rem;
-}
-.heading-primary--main {
-	display: block;
-	font-size: 6rem;
-	font-weight: 400;
-	letter-spacing: 3.5rem;
-	animation-name: moveInLeft;
-	animation-duration: 1s;
-	animation-timing-function: ease-out;
-	/* animation-iteration-count: 3;
-	 animation-delay: 3s; */
-}
-.heading-primary--sub {
-	display: block;
-	font-size: 2rem;
-	font-weight: 700;
-	letter-spacing: 1.75rem;
-	animation: moveInRight 1s ease-out;
-	/* animation-name: moveInRight;
-	animation-duration: 1s;
-	animation-timing-function: ease-out; */
+
+	&--main {
+		display: block;
+		font-size: 6rem;
+		font-weight: 400;
+		letter-spacing: 3.5rem;
+		animation-name: moveInLeft;
+		animation-duration: 1s;
+		animation-timing-function: ease-out;
+		/* animation-iteration-count: 3;
+         animation-delay: 3s; */
+	}
+
+	&--sub {
+		display: block;
+		font-size: 2rem;
+		font-weight: 700;
+		letter-spacing: 1.75rem;
+		animation: moveInRight 1s ease-out;
+		/* animation-name: moveInRight;
+        animation-duration: 1s;
+        animation-timing-function: ease-out; */
+	}
 }
 
 @keyframes moveInLeft {
@@ -151,60 +158,65 @@ body {
 	}
 }
 
-.btn:link,
-.btn:visited {
-	text-transform: uppercase;
-	text-decoration: none;
-	/* only this way will the padding apply */
-	display: inline-block;
-	border-radius: 10rem;
-	transition: all 0.2s;
-	position: relative;
-	font-size: 1.6rem;
-}
-.btn:hover {
-	/* y-direction from top to bottom, so negative value means going up */
-	transform: translateY(-3px);
-	/* x position, y postion , blur(larger values make the element look further away)*/
-	box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-}
-.btn:active {
-	/* this valve is relative to the -3px */
-	transform: translateY(-1px);
-	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-}
-.btn--white {
-	background-color: #fff;
-	color: #777;
-	padding: 1.5rem 4rem;
-}
-.btn::after {
-	content: "";
-	display: inline-block;
-	height: 100%;
-	width: 100%;
-	border-radius: 10rem;
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: -1;
-	transition: all 0.4s;
-}
+.btn {
+	&:link,
+	&:visited {
+		text-transform: uppercase;
+		text-decoration: none;
+		/* only this way will the padding apply */
+		display: inline-block;
+		border-radius: 10rem;
+		transition: all 0.2s;
+		position: relative;
+		font-size: 1.6rem;
+	}
 
-.btn--white::after {
-	background-color: #fff;
-}
-.btn:hover::after {
-	transform: scaleX(1.4) scaleY(1.6);
-	opacity: 0;
-}
+	&:hover {
+		/* y-direction from top to bottom, so negative value means going up */
+		transform: translateY(-3px);
+		/* x position, y position , blur(larger values make the element look further away)*/
+		box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
 
-.btn--animated {
-	animation: moveInRBottom 0.5s ease-out 0.75s;
-	/* So, again, these styles will now be applied
+		&::after {
+			transform: scaleX(1.4) scaleY(1.6);
+			opacity: 0;
+		}
+	}
 
-before the animation starts simply by using the
+	&:active {
+		/* this valve is relative to the -3px */
+		transform: translateY(-1px);
+		box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+	}
 
-animation fill mode and set it to backwards. */
-	animation-fill-mode: backwards;
+	&--white {
+		background-color: $color-white;
+		color: $color-grey-dark;
+		padding: 1.5rem 4rem;
+		&::after {
+			background-color: $color-white;
+		}
+	}
+	&::after {
+		content: "";
+		display: inline-block;
+		height: 100%;
+		width: 100%;
+		border-radius: 10rem;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		transition: all 0.4s;
+	}
+
+	&--animated {
+		animation: moveInRBottom 0.5s ease-out 0.75s;
+		/* So, again, these styles will now be applied
+    
+    before the animation starts simply by using the
+    
+    animation fill mode and set it to backwards. */
+		animation-fill-mode: backwards;
+	}
 }
