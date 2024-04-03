@@ -1,0 +1,46 @@
+@keyframes moveInLeft {
+	0% {
+		opacity: 0;
+		/* Because the direction goes from left to right.
+        So a positive value means it goes to the right,
+        and negative value means it goes to the left. */
+		transform: translateX(-10rem);
+	}
+
+	80% {
+		transform: translateX(1rem);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes moveInRight {
+	0% {
+		opacity: 0;
+		transform: translateX(1orem);
+	}
+
+	80% {
+		transform: translateX(-1rem);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+@keyframes moveInRBottom {
+	0% {
+		opacity: 0;
+		transform: translateY(3rem);
+	}
+
+	/* 80% {
+		transform: translateY(-10px);
+	} */
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}

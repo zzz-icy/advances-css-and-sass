@@ -1,0 +1,22 @@
+// a partial sass file
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	/* better practice , define it under body and inherit here*/
+	box-sizing: inherit;
+}
+html {
+	/* 1rem = 10px */
+	/* by doing this, then we remove the ability for  people  to see our website properly, because they can no longer change the default font size. */
+	/* font-size: 10px; */
+	/* 10/16 */
+	// global definition, this defines what iem is
+	font-size: 62.5%;
+}
+body {
+	box-sizing: border-box;
+	/* paddings and margins are not considered into the height and width */
+	padding: 3rem;
+}
