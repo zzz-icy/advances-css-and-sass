@@ -1,52 +1,16 @@
+/*** ABSTRACTS ****/
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
 /*** BASE ****/
 @import "base/base";
 @import "base/animation";
 @import "base/utilities";
 @import "base/typography";
-/*** ABSTRACTS ****/
-@import "abstracts/functions";
-@import "abstracts/mixins";
-@import "abstracts/variables";
+
 /*** PAGES ****/
 @import "pages/home";
 /*** COMPONENTS ****/
 @import "components/button";
 @import "layout/header";
-
-/**** BASIC RESET *****/
-
-.heading-primary {
-	color: $color-white;
-	text-transform: uppercase;
-	/* This backface-visibility property determines if the back part of the element when we transform it
-    is visible or hidden for the user.
-    So imagine we have an element and we rotate it 180 degrees.
-    So it would be logical that we then see the back part
-    of that element, right?
-    But if we use backface-visibility hidden, then that back part gets hidden which is a hacky fix for the shaky animation, */
-	backface-visibility: hidden;
-	margin-bottom: 6rem;
-
-	&--main {
-		display: block;
-		font-size: 6rem;
-		font-weight: 400;
-		letter-spacing: 3.5rem;
-		animation-name: moveInLeft;
-		animation-duration: 1s;
-		animation-timing-function: ease-out;
-		/* animation-iteration-count: 3;
-         animation-delay: 3s; */
-	}
-
-	&--sub {
-		display: block;
-		font-size: 2rem;
-		font-weight: 700;
-		letter-spacing: 1.75rem;
-		animation: moveInRight 1s ease-out;
-		/* animation-name: moveInRight;
-        animation-duration: 1s;
-        animation-timing-function: ease-out; */
-	}
-}
