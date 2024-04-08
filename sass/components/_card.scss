@@ -60,7 +60,16 @@
 		height: 25rem;
 		background-blend-mode: screen;
 		-webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-		clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+		clip-path: polygon(
+			0 0,
+			100% 0,
+			100% 85%,
+			0 100%
+		); // this will make the overflow: hidden set above no long working
+		// we will need to manually set the border radium again
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+
 		&--1 {
 			background-image: linear-gradient(
 					to right bottom,
