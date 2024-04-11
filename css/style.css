@@ -67,27 +67,27 @@ body {
   }
 }
 .u-center-text {
-  text-align: center;
+  text-align: center !important;
 }
 
 .u-margin-bottom-small {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem !important;
 }
 
 .u-margin-bottom-medium {
-  margin-bottom: 4rem;
+  margin-bottom: 4rem !important;
 }
 
 .u-margin-bottom-big {
-  margin-bottom: 8rem;
+  margin-bottom: 8rem !important;
 }
 
 .u-margin-top-big {
-  margin-top: 8rem;
+  margin-top: 8rem !important;
 }
 
 .u-margin-top-huge {
-  margin-top: 10rem;
+  margin-top: 10rem !important;
 }
 
 body {
@@ -208,7 +208,7 @@ body {
 }
 
 /*** COMPONENTS ****/
-.btn:link, .btn:visited {
+.btn, .btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
   /* only this way will the padding apply */
@@ -218,6 +218,8 @@ body {
   position: relative;
   font-size: 1.6rem;
   padding: 1.5rem 4rem;
+  border: none;
+  cursor: pointer;
 }
 .btn:hover {
   /* y-direction from top to bottom, so negative value means going up */
@@ -229,7 +231,8 @@ body {
   transform: scaleX(1.4) scaleY(1.6);
   opacity: 0;
 }
-.btn:active {
+.btn:active, .btn:focus {
+  outline: none;
   /* this valve is relative to the -3px */
   transform: translateY(-1px);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
@@ -579,6 +582,9 @@ body {
   width: 49%;
   display: inline-block;
 }
+.form__radio-input {
+  display: none;
+}
 .form__radio-label {
   font-size: 1.6rem;
   cursor: pointer;
@@ -593,7 +599,7 @@ body {
   display: inline-block;
   position: absolute;
   left: 0;
-  top: 0;
+  top: -0.4rem;
 }
 .form__radio-button::after {
   content: "";
@@ -606,6 +612,11 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #55c57a;
+  opacity: 0;
+  transition: all 0.3s;
+}
+.form__radio-input:checked ~ .form__radio-label .form__radio-button::after {
+  opacity: 1;
 }
 
 /*** LAYOUTS ****/
