@@ -47,8 +47,7 @@
 		list-style: none;
 		text-align: center;
 		text-decoration: none;
-		position: absolute;
-		@include center-horizontal-vertical;
+		@include absoluteCentered;
 	}
 	&__item {
 		margin: 1rem;
@@ -115,9 +114,11 @@
 		}
 		&::before {
 			top: -0.8rem;
+			// transform-origin: right; // by default it is center
 		}
 		&::after {
 			top: 0.8rem;
+			// transform-origin: right;
 		}
 	}
 

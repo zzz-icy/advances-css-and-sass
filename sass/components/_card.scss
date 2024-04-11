@@ -152,8 +152,7 @@
 
 	// FRONT SIDE STYLING
 	&__cta {
-		position: absolute;
-		@include center-horizontal-vertical;
+		@include absoluteCentered;
 
 		width: 90%;
 		text-align: center;

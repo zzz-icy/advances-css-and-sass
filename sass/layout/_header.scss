@@ -24,12 +24,12 @@
 	}
 
 	&__text-box {
-		position: absolute;
+		// position: absolute;
 		// top: 40%;
 		// left: 50%;
 		// /* -50% is for the height or the width of the element */
 		// transform: translate(-50%, -50%);
-		@include center-horizontal-vertical;
+		@include absoluteCentered;
 
 		text-align: center;
 	}
