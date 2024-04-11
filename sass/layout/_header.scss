@@ -25,10 +25,12 @@
 
 	&__text-box {
 		position: absolute;
-		top: 40%;
-		left: 50%;
-		/* -50% is for the height or the width of the element */
-		transform: translate(-50%, -50%);
+		// top: 40%;
+		// left: 50%;
+		// /* -50% is for the height or the width of the element */
+		// transform: translate(-50%, -50%);
+		@include center-horizontal-vertical;
+
 		text-align: center;
 	}
 }
